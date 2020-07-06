@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE_EMP", discriminatorType= DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "TYPE", discriminatorType= DiscriminatorType.STRING)
 @DiscriminatorValue("MERE")
 @Data @AllArgsConstructor @NoArgsConstructor 
 public class Formation implements Serializable {

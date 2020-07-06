@@ -41,44 +41,30 @@ public class ExercicesCoursApplication {
 		List<Participant> participants = Arrays.asList(pa1, pa2, pa3);
 		participantRepository.saveAll(participants);
 		CentreRepository centresRepository = ctx.getBean(CentreRepository.class);
-		Centre centParis = new Centre();
-		centParis.setNom("orsys-paris");
-		centParis.setDescription("orsys paris");
-		centParis.setContact(co1);
-		Centre centNantes = new Centre();
-		centNantes.setNom("orsys-nantes");
-		centNantes.setDescription("orsys nantes");
-		centNantes.setContact(co2);
+		Centre centParis = new Centre();centParis.setNom("orsys-paris");
+		centParis.setDescription("orsys paris");centParis.setContact(co1);
+		Centre centNantes = new Centre();centNantes.setNom("orsys-nantes");
+		centNantes.setDescription("orsys nantes");centNantes.setContact(co2);
 		List<Centre> centres = Arrays.asList(centParis, centNantes);
 		centresRepository.saveAll(centres);
 		FormationRepository formationsRepository = ctx.getBean(FormationRepository.class);
-		Formation fmMere = new Formation();
-		fmMere.setCode("SPG");
-		fmMere.setTheme("Spring MVC");
-		fmMere.setPrix(2890);
-		fmMere.setCentre(centParis);
-		fmMere.setFormateur(fte1);
-		fmMere.setParticipant(participants);
-		Formation fmIntra= new FormationIntra("Paris");
-		fmIntra.setCode("RAC");
-		fmIntra.setTheme("React");
-		fmIntra.setPrix(2050);
-		fmIntra.setFormateur(fte2);
-		fmIntra.setCentre(centNantes);
-		fmIntra.setParticipant(participants);
+		Formation fmIntra1 = new FormationIntra("Paris");
+		fmIntra1.setCode("SPG");fmIntra1.setTheme("Spring MVC");fmIntra1.setPrix(2890);
+		fmIntra1.setCentre(centParis);fmIntra1.setFormateur(fte1);fmIntra1.setParticipant(participants);
+		Formation fmIntra2= new FormationIntra("Paris");fmIntra2.setCode("RAC");fmIntra2.setTheme("React");
+		fmIntra2.setPrix(2050);fmIntra2.setFormateur(fte2);
+		fmIntra2.setCentre(centNantes);fmIntra2.setParticipant(participants);
 		Formation fmInter= new FormationIntra("Nantes");
-		fmInter.setCode("JVA");
-		fmIntra.setTheme("Java");
-		fmIntra.setPrix(2650);
-		fmInter.setFormateur(fte2);
-		fmInter.setCentre(centNantes);
+		fmInter.setCode("JVA");fmInter.setTheme("Java");fmInter.setPrix(2650);fmInter.setTheme("Java 8");
+		fmInter.setPrix(2050);fmInter.setFormateur(fte2);fmInter.setCentre(centNantes);
 		fmInter.setParticipant(participants);
-		List<Formation> formations = Arrays.asList(fmMere, fmIntra,fmInter);
+		List<Formation> formations = Arrays.asList(fmIntra1, fmIntra2,fmInter);
 		formationsRepository.saveAll(formations);
 		centParis.setFormation(formations);
 		centNantes.setFormation(formations);
 		centresRepository.save(centParis);
 		centresRepository.save(centNantes);
-	}
+		}
+
 
 }
