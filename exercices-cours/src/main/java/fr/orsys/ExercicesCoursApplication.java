@@ -22,6 +22,7 @@ import fr.orsys.entities.Participant;
 @SpringBootApplication
 public class ExercicesCoursApplication {
 	public static void main(String[] args) {
+		/*******************/
 		ApplicationContext ctx = SpringApplication.run(ExercicesCoursApplication.class, args);
 		ContactRepository contactsRepository = ctx.getBean(ContactRepository.class);
 		Contact co1 = new Contact(null, "m1@orsys.fr", 123456, 123456);
