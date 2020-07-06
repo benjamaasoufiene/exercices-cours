@@ -28,7 +28,7 @@ public class FormationController {
 		System.out.println("Code de la formation: "+ code);
 		Formation f= formationRepository.findByCode(code);
 		System.out.println("Theme de la formation: "+ f.getTheme());
-		System.out.println("Prix de la formation: "+ f.getTheme());
+		System.out.println("Prix de la formation: "+ f.getPrix());
 		model.addAttribute("formation", "Spring MVC");
 		//model.addAttribute("formation", "Spring MVC");
 	//	recherchePM

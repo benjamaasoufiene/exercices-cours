@@ -22,7 +22,6 @@ import fr.orsys.entities.Participant;
 @SpringBootApplication
 public class ExercicesCoursApplication {
 	public static void main(String[] args) {
-		/*******************/
 		ApplicationContext ctx = SpringApplication.run(ExercicesCoursApplication.class, args);
 		ContactRepository contactsRepository = ctx.getBean(ContactRepository.class);
 		Contact co1 = new Contact(null, "m1@orsys.fr", 123456, 123456);
@@ -55,16 +54,22 @@ public class ExercicesCoursApplication {
 		FormationRepository formationsRepository = ctx.getBean(FormationRepository.class);
 		Formation fmMere = new Formation();
 		fmMere.setCode("SPG");
+		fmMere.setTheme("Spring MVC");
+		fmMere.setPrix(2890);
 		fmMere.setCentre(centParis);
 		fmMere.setFormateur(fte1);
 		fmMere.setParticipant(participants);
 		Formation fmIntra= new FormationIntra("Paris");
 		fmIntra.setCode("RAC");
+		fmIntra.setTheme("React");
+		fmIntra.setPrix(2050);
 		fmIntra.setFormateur(fte2);
 		fmIntra.setCentre(centNantes);
 		fmIntra.setParticipant(participants);
 		Formation fmInter= new FormationIntra("Nantes");
-		fmInter.setCode("Java");
+		fmInter.setCode("JVA");
+		fmIntra.setTheme("Java");
+		fmIntra.setPrix(2650);
 		fmInter.setFormateur(fte2);
 		fmInter.setCentre(centNantes);
 		fmInter.setParticipant(participants);
