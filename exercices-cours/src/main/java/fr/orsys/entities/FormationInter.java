@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
 @DiscriminatorValue("INTER")
-public class FromationInter extends Formation{
+public class FormationInter extends Formation{
 	private static final long serialVersionUID = 1L;
 	private int nbEntreprises;
 

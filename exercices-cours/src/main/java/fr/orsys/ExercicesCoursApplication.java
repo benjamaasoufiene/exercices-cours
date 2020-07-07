@@ -16,6 +16,7 @@ import fr.orsys.entities.Centre;
 import fr.orsys.entities.Contact;
 import fr.orsys.entities.Formateur;
 import fr.orsys.entities.Formation;
+import fr.orsys.entities.FormationInter;
 import fr.orsys.entities.FormationIntra;
 import fr.orsys.entities.Participant;
 
@@ -54,7 +55,7 @@ public class ExercicesCoursApplication {
 		Formation fmIntra2= new FormationIntra("Paris");fmIntra2.setCode("RAC");fmIntra2.setTheme("React");
 		fmIntra2.setPrix(2050);fmIntra2.setFormateur(fte2);
 		fmIntra2.setCentre(centNantes);fmIntra2.setParticipant(participants);
-		Formation fmInter= new FormationIntra("Nantes");
+		Formation fmInter= new FormationInter();
 		fmInter.setCode("JVA");fmInter.setTheme("Java");fmInter.setPrix(2650);fmInter.setTheme("Java 8");
 		fmInter.setPrix(2050);fmInter.setFormateur(fte2);fmInter.setCentre(centNantes);
 		fmInter.setParticipant(participants);
