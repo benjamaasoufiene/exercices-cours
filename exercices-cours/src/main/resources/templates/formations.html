@@ -41,7 +41,8 @@
 			<div class="col-6" th:if="${formation}">
 				<div class="card  border-danger">
 					<div class="card-header badge badge-danger text-wrap">
-						<h6>Opération sur une formation</h6><span>Code: <label th:text="${formation.code}"></label></span>
+						<h6>Opération sur une formation</h6>
+						<span>Code: <label th:text="${formation.code}"></label></span>
 					</div>
 					<div class="card-body">
 						<form th:action="@{/modifierPrixformation}" method="post">
@@ -115,6 +116,11 @@
 								<td th:text="${p.age}"></td>
 							</tr>
 						</table>
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li class="page-item" th:each="P:${taillePagination}"><a class="page-link" th:href="@{/consulterformation(page=${P}, size=${size},code=${formation.code})}" th:text="${P}"></a></li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>

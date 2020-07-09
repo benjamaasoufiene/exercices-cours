@@ -1,10 +1,13 @@
 package fr.orsys.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +23,6 @@ public class Participant implements Serializable {
 	private String nom;
 	private String prenom;
 	private int age;
-
+	@ManyToMany
+	Collection<Formation> formation;
 }

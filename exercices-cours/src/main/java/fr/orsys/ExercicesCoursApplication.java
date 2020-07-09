@@ -36,11 +36,19 @@ public class ExercicesCoursApplication {
 		List<Formateur> formateurs = Arrays.asList(fte1, fte2, fte3);
 		formateursRepository.saveAll(formateurs);
 		ParticipantRepository participantRepository = ctx.getBean(ParticipantRepository.class);
-		Participant pa1 = new Participant(null, "Lionel", "Messi", 33);
-		Participant pa2 = new Participant(null, "Cristiano", "Ronaldo", 35);
-		Participant pa3 = new Participant(null, "Kylian", "Mbappé", 22);
+		Participant pa1 = new Participant();
+		Participant pa2 = new Participant();
+		Participant pa3 = new Participant();
+		pa1.setAge(33);
+		pa1.setNom("Lionel");
+		pa1.setPrenom("Messi");
+		pa2.setAge(35);
+		pa2.setNom("Cristiano");
+		pa2.setPrenom("Ronaldo");
+		pa3.setAge(22);
+		pa3.setNom("Kylian");
+		pa3.setPrenom("Mbappé");
 		List<Participant> participants = Arrays.asList(pa1, pa2, pa3);
-		participantRepository.saveAll(participants);
 		CentreRepository centresRepository = ctx.getBean(CentreRepository.class);
 		Centre centParis = new Centre();centParis.setNom("orsys-paris");
 		centParis.setDescription("orsys paris");centParis.setContact(co1);
@@ -61,6 +69,10 @@ public class ExercicesCoursApplication {
 		fmInter.setParticipant(participants);
 		List<Formation> formations = Arrays.asList(fmIntra1, fmIntra2,fmInter);
 		formationsRepository.saveAll(formations);
+		pa1.setFormation(formations);
+		pa2.setFormation(formations);
+		pa3.setFormation(formations);
+		participantRepository.saveAll(participants);
 		centParis.setFormation(formations);
 		centNantes.setFormation(formations);
 		centresRepository.save(centParis);
@@ -69,3 +81,9 @@ public class ExercicesCoursApplication {
 
 
 }
+
+
+
+
+
+

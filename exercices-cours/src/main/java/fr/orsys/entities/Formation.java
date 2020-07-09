@@ -7,6 +7,7 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -35,6 +36,6 @@ public class Formation implements Serializable {
 	private Formateur formateur;
 	@ManyToOne
     private Centre centre;
-	@ManyToMany
+	@ManyToMany(mappedBy = "formation", fetch = FetchType.LAZY)
 	Collection<Participant> participant;
 }
