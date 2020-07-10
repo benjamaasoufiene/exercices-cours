@@ -42,18 +42,26 @@
 				<div class="card  border-danger">
 					<div class="card-header badge badge-danger text-wrap">
 						<h6>Opération sur une formation</h6>
-						<span>Code: <label th:text="${formation.code}"></label></span>
 					</div>
 					<div class="card-body">
 						<form th:action="@{/modifierPrixformation}" method="post">
-							<div class="input-group">
-								<label class="col-sm-2 col-form-label">Prix:</label> <input
-									type="text" name="prix" class="form-control" placeholder="prix">
-								<div class="input-group-append">
-									<input type="text" class="sr-only" name="code"
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Code:</label>
+								<div class="col-sm-10">
+								<span class="badge badge-pill badge-danger" th:text="${formation.code}"></span>
+									<input class="form-control" type="hidden" name="code"
 										th:value="${formation.code}">
-									<button class="btn btn-primary" type="submit">Enregistrer</button>
 								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Prix:</label>
+								<div class="col-sm-10">
+									<input type="text" name="prix" class="form-control"
+										placeholder="prix">
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<button class="btn btn-primary" type="submit">Enregistrer</button>
 							</div>
 						</form>
 					</div>
@@ -118,7 +126,10 @@
 						</table>
 						<nav aria-label="Page navigation">
 							<ul class="pagination">
-								<li class="page-item" th:each="P:${taillePagination}"><a class="page-link" th:href="@{/consulterformation(page=${P}, size=${size},code=${formation.code})}" th:text="${P}"></a></li>
+								<li th:class="${P==activePage} ? 'page-item active':'page-item'"
+									th:each="P:${taillePagination}"><a class="page-link"
+									th:href="@{/consulterformation(page=${P}, size=${size},code=${formation.code})}"
+									th:text="${P+1}"> </a></li>
 							</ul>
 						</nav>
 					</div>
