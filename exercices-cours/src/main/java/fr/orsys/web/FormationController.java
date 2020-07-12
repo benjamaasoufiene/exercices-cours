@@ -27,7 +27,7 @@ public class FormationController {
 	@Autowired
 	private FormationRepository formationRepository;
 
-	@RequestMapping(value = "/consulterformation")
+	@RequestMapping(value = "/admin/consulterformation")
 	public String consulterformation(Model model, @RequestParam(name = "code", defaultValue = "") String code,
 			@RequestParam(name = "page", defaultValue = "0") int p,
 			@RequestParam(name = "size", defaultValue = "2") int s) {
@@ -50,7 +50,7 @@ public class FormationController {
 		return "formations";
 	}
 
-	@RequestMapping(value = "/modifierPrixformation", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/modifierPrixformation", method = RequestMethod.POST)
 	public String modifierPrixformation(Model model, @RequestParam(name = "code", defaultValue = "") String code,
 	@RequestParam(name = "prix", defaultValue = "0") Double prix) {
 	Formation f = formationRepository.findByCode(code);
@@ -62,8 +62,16 @@ public class FormationController {
 
 	
 
-	@RequestMapping({ "/", "/formations" })
+	@RequestMapping({ "/", "/admin/formations" })
 	public String formations() {
 		return "formations";
+	}
+	@RequestMapping(value="/403")
+	public String accessDenid() {
+		return "403";
+	}
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
 	}
 }
